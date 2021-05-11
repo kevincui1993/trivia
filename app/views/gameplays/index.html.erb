@@ -9,3 +9,16 @@
     </li>
   <% end %>
 </ul>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>Question:
+      <%= question.text %>
+    </li>
+    <% Answer.where(question_id: question.id).each do |answer| %>
+      <li>
+        <%= answer.text %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
